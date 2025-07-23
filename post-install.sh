@@ -21,15 +21,16 @@ cd "/home/$USER/dotfiles"
 stow atalhos
 rm -rf "/home/$USER/.config/btop"
 stow btop
+stow scritps
+chmod +x "/home/$USER/.local/scripts/*"
 stow crontab
-sudo ln -s "/home/$USER/.crontab/samuelfr" "/var/spool/cron/samuelfr"
+"/home/$USER/.local/scripts/apply_crontab"
 rm -rf "/home/$USER/.config/git"
 stow git
 rm -rf "/home/$USER/.config/kitty"
 stow kitty
 rm -rf "/home/$USER/.config/nvim"
 stow nvim
-stow scritps
 stow ssh
 stow starship
 stow tmux
