@@ -112,11 +112,18 @@ php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
 php composer-setup.php --quiet && sudo mv composer.phar /usr/local/bin/composer
 rm composer-setup.php
 
+## Pywal
+sudo apt install pipx
+pipx install pywal16
+
 ## Redis
 sudo docker run -d --restart unless-stopped -p "6379:6379" --name=redis7 redis:7
 
 ## Postgres
 sudo docker run -d --restart unless-stopped -p "5432:5432" --name=postgres17 -e POSTGRES_HOST_AUTH_METHOD=trust postgres:17
+
+## Starship
+sudo apt install starship -y
 
 ## Set Git
 git config --global user.name "Samuel Rezende"
@@ -129,11 +136,18 @@ sudo apt install -y flatpak
 sudo apt install -y gnome-software-plugin-flatpak
 sudo flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 
-## Kitty
-curl -L https://sw.kovidgoyal.net/kitty/installer.sh
-sudo ln -s /home/$USER/.local/kitty.app/bin/kitty /usr/local/bin/
-cp /home/$USER/.local/kitty.app/share/applications/kitty.desktop /home/$USER/.local/share/applications
-sed -i "s|Icon=Kitty|Icon=/home/$USER/.local/kitty.app/share/icons/hicolor/256x256/apps/kitty.png|g" /home/$USER/.local/share/applications/kitty.desktop
+## Anydesk
+sudo apt update -y
+sudo apt install ca-certificates curl apt-transport-https
+sudo install -m 0755 -d /etc/apt/keyrings
+sudo curl -fsSL https://keys.anydesk.com/repos/DEB-GPG-KEY -o /etc/apt/keyrings/keys.anydesk.com.asc
+sudo chmod a+r /etc/apt/keyrings/keys.anydesk.com.asc
+echo "deb [signed-by=/etc/apt/keyrings/keys.anydesk.com.asc] https://deb.anydesk.com all main" | sudo tee /etc/apt/sources.list.d/anydesk-stable.list > /dev/null
+sudo apt update -y
+sudo apt install anydesk -y
+
+## Ghostty
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/mkasberg/ghostty-ubuntu/HEAD/install.sh)"
 
 ## Chrome
 cd /tmp
@@ -180,6 +194,34 @@ sudo apt install -y code
 ## WL-clipboard
 sudo apt install wl-clipboard -y
 
+## Postman
+cd /tmp
+curl https://dl.pstmn.io/download/latest/linux_64 --output ./postman-linux-x64.tar.gz
+sudo mkdir -p /opt/Postman
+tar zxf ./postman-linux-x64.tar.gz -C /opt
+sudo chown -R $USER:$USER /opt/Postman
+ln -s /opt/Postman/Postman /usr/local/bin/postman
+
+POSTMAN_DESKTOP_FILE="/usr/share/applications/postman.desktop"
+
+sudo bash -c "cat > $POSTMAN_DESKTOP_FILE" <<EOL
+[Desktop Entry]
+Encoding=UTF-8
+Name=Postman
+Exec=postman
+Icon=/opt/Postman/app/resources/app/assets/icon.png
+Terminal=false
+Type=Application
+Categories=Development;
+EOL
+cd -
+
+## Qbittorrent
+sudo add-apt-repository ppa:qbittorrent-team/qbittorrent-stable -y
+sudo apt-get update -y
+sudo apt-get install qbittorrent -y
+
+
 ## Fonts
 mkdir -p ~/.local/share/fonts
 
@@ -213,6 +255,8 @@ gext install space-bar@luchrioh
 gext install dash-to-dock@micxgx.gmail.com
 gext install appindicatorsupport@rgcjonas.gmail.com
 gext install clipboard-indicator@tudmotu.com
+gext install unblank@sun.wxg@gmail.com
+gext install windowIsReady_Remover@nunofarruca@gmail.com
 
 sudo cp ~/.local/share/gnome-shell/extensions/just-perfection-desktop\@just-perfection/schemas/org.gnome.shell.extensions.just-perfection.gschema.xml /usr/share/glib-2.0/schemas/
 sudo cp ~/.local/share/gnome-shell/extensions/blur-my-shell\@aunetx/schemas/org.gnome.shell.extensions.blur-my-shell.gschema.xml /usr/share/glib-2.0/schemas/
@@ -220,6 +264,7 @@ sudo cp ~/.local/share/gnome-shell/extensions/space-bar\@luchrioh/schemas/org.gn
 sudo cp ~/.local/share/gnome-shell/extensions/dash-to-dock\@micxgx.gmail.com/schemas/org.gnome.shell.extensions.dash-to-dock.gschema.xml /usr/share/glib-2.0/schemas/
 sudo cp ~/.local/share/gnome-shell/extensions/appindicatorsupport\@rgcjonas.gmail.com/schemas/org.gnome.shell.extensions.appindicator.gschema.xml /usr/share/glib-2.0/schemas/
 sudo cp ~/.local/share/gnome-shell/extensions/clipboard-indicator\@tudmotu.com/schemas/org.gnome.shell.extensions.clipboard-indicator.gschema.xml /usr/share/glib-2.0/schemas/
+sudo cp ~/.local/share/gnome-shell/extensions/unblank\@sun.wxg\@gmail.com/schemas/org.gnome.shell.extensions.unblank.gschema.xml /usr/share/glib-2.0/schemas/
 sudo glib-compile-schemas /usr/share/glib-2.0/schemas/
 
 ### Configure Just Perfection
@@ -305,6 +350,9 @@ sudo gpg --dearmor --output /usr/share/debsig/keyrings/AC2D62742012EA22/debsig.g
 ### Install 1Password & 1password-cli
 sudo apt update && sudo apt install -y 1password 1password-cli
 
+## VirtualBox
+sudo apt install virtualbox -y
+
 ## Spotify
 # Stream music using https://spotify.com
 curl -sS https://download.spotify.com/debian/pubkey_C85668DF69375001.gpg | sudo gpg --dearmor --yes -o /etc/apt/trusted.gpg.d/spotify.gpg
@@ -322,9 +370,9 @@ sudo chmod +x /opt/cursor.appimage
 sudo apt install -y fuse3
 sudo apt install -y libfuse2t64
 
-DESKTOP_FILE="/usr/share/applications/cursor.desktop"
+CURSOR_DESKTOP_FILE="/usr/share/applications/cursor.desktop"
 
-sudo bash -c "cat > $DESKTOP_FILE" <<EOL
+sudo bash -c "cat > $CURSOR_DESKTOP_FILE" <<EOL
 [Desktop Entry]
 Name=Cursor
 Comment=AI-powered code editor
