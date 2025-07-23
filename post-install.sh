@@ -27,8 +27,8 @@ stow crontab
 "/home/$USER/.local/scripts/apply_crontab"
 rm -rf "/home/$USER/.config/git"
 stow git
-rm -rf "/home/$USER/.config/kitty"
-stow kitty
+rm -rf "/home/$USER/.config/ghostty"
+stow ghostty
 rm -rf "/home/$USER/.config/nvim"
 stow nvim
 stow ssh
