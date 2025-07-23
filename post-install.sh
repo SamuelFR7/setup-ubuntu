@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 if ! op account get &>/dev/null; then
     echo "Por favor, faça login no 1Password CLI primeiro: op signin"
