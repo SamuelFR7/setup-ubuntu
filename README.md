@@ -5,7 +5,6 @@
 - [x] anydesk
 - [x] pywal
 - [x] virtualbox
-- [x] qbittorrent
 - [x] postman
 - [x] ghostty instead of kitty
 - [x] gext: unblank@sun.wxg@gmail.com

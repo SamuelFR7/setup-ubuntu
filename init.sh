@@ -216,12 +216,6 @@ Categories=Development;
 EOL
 cd -
 
-## Qbittorrent
-sudo add-apt-repository ppa:qbittorrent-team/qbittorrent-stable -y
-sudo apt-get update -y
-sudo apt-get install qbittorrent -y
-
-
 ## Fonts
 mkdir -p ~/.local/share/fonts
 
