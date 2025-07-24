@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 
 gsettings set org.gnome.desktop.wm.keybindings close "['<Super>q']"
+gsettings set org.gnome.desktop.wm.keybindings maximize "['<Super>Up']"
+gsettings set org.gnome.desktop.wm.keybindings unmaximize "['<Super>Down']"
 gsettings set org.gnome.mutter dynamic-workspaces false
 gsettings set org.gnome.desktop.wm.preferences num-workspaces 6
 

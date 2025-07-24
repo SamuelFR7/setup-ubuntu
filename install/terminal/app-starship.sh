@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-sudo apt install starship -y
+curl -sS https://starship.rs/install.sh | sh
