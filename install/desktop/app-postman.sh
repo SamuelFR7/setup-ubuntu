@@ -3,9 +3,10 @@
 cd /tmp
 curl https://dl.pstmn.io/download/latest/linux_64 --output ./postman-linux-x64.tar.gz
 sudo mkdir -p /opt/Postman
-tar zxf ./postman-linux-x64.tar.gz -C /opt
+sudo tar zxf ./postman-linux-x64.tar.gz -C /opt
 sudo chown -R $USER:$USER /opt/Postman
-ln -s /opt/Postman/Postman /usr/local/bin/postman
+sudo ln -s /opt/Postman/Postman /usr/local/bin/postman
+sudo chown -R $USER:$USER /usr/local/bin/postman
 
 POSTMAN_DESKTOP_FILE="/usr/share/applications/postman.desktop"
 
