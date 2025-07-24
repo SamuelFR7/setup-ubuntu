@@ -3,6 +3,8 @@
 # Exit immediately if a command exits with a non-zero status
 set -e
 
+export PATH="$HOME/.local/bin:$PATH"
+
 # Check if script is in "www" folder
 if [ "$PWD" != "/home/$USER/www/setup-ubuntu" ]; then
     echo "Error: This script must be run from /home/$USER/www/setup-ubuntu/"

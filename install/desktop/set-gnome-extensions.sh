@@ -27,14 +27,17 @@ sudo cp ~/.local/share/gnome-shell/extensions/clipboard-indicator\@tudmotu.com/s
 sudo cp ~/.local/share/gnome-shell/extensions/unblank\@sun.wxg\@gmail.com/schemas/org.gnome.shell.extensions.unblank.gschema.xml /usr/share/glib-2.0/schemas/
 sudo glib-compile-schemas /usr/share/glib-2.0/schemas/
 
-### Configure Just Perfection
+# Configure Just Perfection
 gsettings set org.gnome.shell.extensions.just-perfection animation 2
 gsettings set org.gnome.shell.extensions.just-perfection dash-app-running true
 gsettings set org.gnome.shell.extensions.just-perfection workspace true
 gsettings set org.gnome.shell.extensions.just-perfection workspace-popup false
 
-### Configure Space Bar
+# Configure Space Bar
 gsettings set org.gnome.shell.extensions.space-bar.behavior smart-workspace-names false
 gsettings set org.gnome.shell.extensions.space-bar.shortcuts enable-activate-workspace-shortcuts false
 gsettings set org.gnome.shell.extensions.space-bar.shortcuts enable-move-to-workspace-shortcuts true
 gsettings set org.gnome.shell.extensions.space-bar.shortcuts open-menu "@as []"
+
+# Configure Dock
+gsettings set org.gnome.shell.extensions.dash-to-dock hot-keys false

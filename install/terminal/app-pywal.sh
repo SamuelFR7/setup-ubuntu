@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
-sudo apt install pipx -y
-pipx install pywal16
-wal --theme gruvbox
+if ! command -v wal &> /dev/null; then
+    sudo apt install pipx -y
+    pipx install pywal16
+    export PATH="$HOME/.local/bin:$PATH"
+    wal --theme gruvbox
+fi
