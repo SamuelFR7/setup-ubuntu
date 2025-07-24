@@ -16,6 +16,7 @@ chmod 644 "/home/$USER/.ssh/id_ed25519.pub"
 cd "/home/$USER"
 git clone git@github.com:SamuelFR7/new_dotfiles.git dotfiles
 cd "/home/$USER/dotfiles"
+git-crypt unlock "/home/$USER/.ssh/dotfiles-key"
 stow atalhos
 rm -rf "/home/$USER/.config/btop"
 stow btop
