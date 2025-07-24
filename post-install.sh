@@ -21,8 +21,7 @@ cd "/home/$USER/dotfiles"
 stow atalhos
 rm -rf "/home/$USER/.config/btop"
 stow btop
-stow scritps
-chmod +x "/home/$USER/.local/scripts/*"
+stow scripts
 stow crontab
 "/home/$USER/.local/scripts/apply_crontab"
 rm -rf "/home/$USER/.config/git"
