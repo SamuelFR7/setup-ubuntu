@@ -13,8 +13,6 @@ op item get "fe53jvhvfhdpiz65cpufmwvvqy" --fields public_key > "/home/$USER/.ssh
 chmod 600 "/home/$USER/.ssh/id_ed25519"
 chmod 644 "/home/$USER/.ssh/id_ed25519.pub"
 
-ssh-add "/home/$USER/.ssh/id_ed25519"
-
 cd "/home/$USER"
 git clone git@github.com:SamuelFR7/new_dotfiles.git dotfiles
 cd "/home/$USER/dotfiles"
