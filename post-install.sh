@@ -1,15 +1,15 @@
 #!/usr/bin/env bash
 
 if ! op account get &>/dev/null; then
-    echo "Por favor, faça login no 1Password CLI primeiro: op signin"
-    exit 1
+  echo "Por favor, faça login no 1Password CLI primeiro: op signin"
+  exit 1
 fi
 
 op document get "i3rjiohtbjyrqznaon4oia4el4" --out-file "/home/$USER/.ssh/dotfiles-key"
 chmod 600 "/home/$USER/.ssh/dotfiles-key"
 
-op item get "fe53jvhvfhdpiz65cpufmwvvqy" --fields private_key --reveal | sed '1d;$d' > "/home/$USER/.ssh/id_ed25519"
-op item get "fe53jvhvfhdpiz65cpufmwvvqy" --fields public_key > "/home/$USER/.ssh/id_ed25519.pub"
+op item get "fe53jvhvfhdpiz65cpufmwvvqy" --fields private_key --reveal | sed '1d;$d' >"/home/$USER/.ssh/id_ed25519"
+op item get "fe53jvhvfhdpiz65cpufmwvvqy" --fields public_key >"/home/$USER/.ssh/id_ed25519.pub"
 chmod 600 "/home/$USER/.ssh/id_ed25519"
 chmod 644 "/home/$USER/.ssh/id_ed25519.pub"
 
@@ -32,6 +32,8 @@ stow nvim
 stow ssh
 stow starship
 stow tmux
+stow flameshot
+stow ulauncher
 rm "/home/$USER/.zshrc"
 stow zsh
 cd -
