@@ -14,8 +14,8 @@ if ! command -v docker &>/dev/null; then
   # Give this user privileged Docker access
   sudo usermod -aG docker ${USER}
   sudo chown $(whoami):$(whoami) /var/run/docker.sock
+  sudo chown $USER:$USER ~/.docker
 
   # Limit log size to avoid running out of disk
   echo '{"log-driver":"json-file","log-opts":{"max-size":"10m","max-file":"5"}}' | sudo tee /etc/docker/daemon.json
 fi
-
