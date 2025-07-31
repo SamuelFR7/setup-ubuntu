@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-flatpak install flathub org.kde.okular
+flatpak install -y flathub org.kde.okular
