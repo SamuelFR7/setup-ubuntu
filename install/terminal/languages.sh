@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 
 # NodeJS
-fnm install 22
+mise use -g node@lts
+mise settings add idiomatic_version_file_enable_tools node
 
 # PHP
 sudo add-apt-repository -y ppa:ondrej/php
