@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # NodeJS
-mise use --global node@lts
+fnm install 22
 
 # PHP
 sudo add-apt-repository -y ppa:ondrej/php
